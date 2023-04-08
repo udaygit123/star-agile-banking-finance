@@ -30,5 +30,14 @@ pipeline {
             sh 'docker build -t prafullla/bankingapp:latest  .'
               }
         }
+      stage('Push Image to DockerHub'){
+               steps {
+                   withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+        	   sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+                   sh 'docker push prafullla/bankingapp:latest'
+
+	            }
+                }
+            }
      }    
 }
