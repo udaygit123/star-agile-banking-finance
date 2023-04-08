@@ -25,8 +25,10 @@ pipeline {
                     }
             }
 
-
-
-
-  	 }    
+     stage('Docker Image Creation'){
+        steps {
+            sh 'docker build -t prafullla/bankingapp:latest  .'
+              }
+        }
+     }    
 }
