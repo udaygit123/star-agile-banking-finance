@@ -8,7 +8,7 @@ pipeline {
      stage('checkout'){
        steps {
          echo 'checkout the code from GitRepo'
-         git 'git 'https://github.com/prafullashilimkar/star-agile-banking-finance.git'
+          git 'https://github.com/prafullashilimkar/star-agile-banking-finance.git'
                     }
             }
    
