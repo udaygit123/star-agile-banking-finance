@@ -3,6 +3,7 @@ pipeline {
 
   tools {
       maven 'M2_HOME'
+      terraform 'Terraform V1.42'
         }
   stages {
      stage('checkout'){
