@@ -59,16 +59,19 @@ environment {
               }
 
      }    
-            stage('Terraform plan'){
-        steps {
-            sh 'terraform plan'
-              }
 
-     }
- stage('Terraform validate'){
+
+      stage('Terraform validate'){
         steps {
             sh 'terraform validate'
 
+              }
+
+     }
+
+            stage('Terraform plan'){
+        steps {
+            sh 'terraform plan'
               }
 
      }
