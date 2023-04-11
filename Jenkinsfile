@@ -52,6 +52,13 @@ environment {
               }
 
      }    
+	  
+	  stage('Terraform fmt'){
+        steps {
+            sh 'terraform fmt'
+              }
+
+     }    
             stage('Terraform plan'){
         steps {
             sh 'terraform plan'
