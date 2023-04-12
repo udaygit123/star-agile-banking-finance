@@ -3,6 +3,7 @@ resource "aws_instance" "test-server" {
   instance_type = "t2.micro" 
   key_name = "jenkinskey1"
   vpc_security_group_ids= ["sg-0cb6a83c3d85f7462"]
+  vpc_id=["vpc-045ba511c8a0597f9"]
   connection {
     type     = "ssh"
     user     = "ubuntu"
