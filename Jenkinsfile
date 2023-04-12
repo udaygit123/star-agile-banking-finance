@@ -33,10 +33,12 @@ environment {
             }
 
      stage('Docker Image Creation'){
-        steps {
-            sh 'docker build -t prafullla/bankingapp:latest  .'
-              }
-        }
+               steps {
+                      sh 'docker build -t prafullla/bankingapp:latest  .'
+                      }
+                   }
+
+
       stage('Push Image to DockerHub'){
                steps {
                    withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
