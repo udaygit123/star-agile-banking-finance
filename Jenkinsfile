@@ -48,14 +48,14 @@ environment {
             }
 	     stage('Terraform init'){
         steps {
-            sh 'terraform init'
+            sh 'sudo /home/ubuntu/terraform init'
               }
 
      }    
 	  
 	  stage('Terraform fmt'){
         steps {
-            sh 'terraform fmt'
+            sh '/home/ubuntu/terraform fmt'
               }
 
      }    
@@ -63,7 +63,7 @@ environment {
 
       stage('Terraform validate'){
         steps {
-            sh 'terraform validate'
+            sh '/home/ubuntu/terraform validate'
 
               }
 
@@ -71,14 +71,14 @@ environment {
 
             stage('Terraform plan'){
         steps {
-            sh 'terraform plan'
+            sh '/home/ubuntu/terraform plan'
               }
 
      }
 
      stage('Terraform apply'){
         steps {
-            sh 'terraform apply -auto-approve'
+            sh '/home/ubuntu/terraform apply -auto-approve'
               } 
 	   }
    }
