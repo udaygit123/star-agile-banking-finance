@@ -32,22 +32,22 @@ environment {
                     }
             }
 
-     stage('Docker Image Creation'){
-               steps {
-                      sh 'docker build -t prafullla/bankingapp:latest  .'
-                      }
-                   }
+//      stage('Docker Image Creation'){
+ //              steps {
+  //                    sh 'docker build -t prafullla/bankingapp:latest  .'
+ //                     }
+ //                  }
 
 
-      stage('Push Image to DockerHub'){
-               steps {
-                   withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
-        	   sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-                   sh 'docker push prafullla/bankingapp:latest'
+//      stage('Push Image to DockerHub'){
+//               steps {
+//                   withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+//        	   sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+ //                  sh 'docker push prafullla/bankingapp:latest'
 
-	            }
-                 }
-            }
+//	            }
+ //                }
+//            }
      stage ('Configure Test-server with Terraform, Ansible and then Deploying'){
             steps {
                 dir('test-server'){
