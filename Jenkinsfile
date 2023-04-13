@@ -50,17 +50,22 @@ pipeline {
 //            }
      stage ('Configure Test-server with Terraform, Ansible and then Deploying'){
             steps {
-              withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
-                dir('test-server'){
+               dir('test-server'){
                   
  //               sh 'sudo chmod 600 jenkinskey1.pem'
  
                 sh 'terraform init'
                 sh 'terraform validate'
-                sh 'terraform apply --auto-approve'
+                
                 }
                 }
             }
+    stage('terraform Apply){
+           steps{
+             withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
+               sh 'terraform apply --auto-approve'
         }
    }
 }
+          }
+          }
