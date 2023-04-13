@@ -1,14 +1,14 @@
 resource "aws_instance" "test-server" {
   ami           = "ami-02eb7a4783e7e9317" 
   instance_type = "t2.medium" 
-  key_name = "jenkinskey1"
+  key_name = "terraformkey"
   subnet_id = "subnet-071971b3fdc4215d4"
   vpc_security_group_ids = ["sg-08f2b02ee2fe9d1c7"]
  
   connection {
     type     = "ssh"
     user     = "ubuntu"
-    private_key = file("./jenkinskey1.pem")
+    private_key = file("./terraformkey.pem")
     host     = self.public_ip
   }
   provisioner "remote-exec" {
