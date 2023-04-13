@@ -62,6 +62,7 @@ pipeline {
             }
     stage('terraform Apply'){
            steps{
+            dir('test-server'){
             withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
                     credentialsId: "aws-credentials",
