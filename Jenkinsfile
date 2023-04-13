@@ -60,7 +60,7 @@ pipeline {
                 }
                 }
             }
-    stage('terraform Apply){
+    stage('terraform Apply'){
            steps{
              withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
                sh 'terraform apply --auto-approve'
