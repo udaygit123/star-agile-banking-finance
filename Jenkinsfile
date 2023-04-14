@@ -6,8 +6,8 @@ pipeline {
       terraform 'terraform-11'
         }
 environment {
-        AWS_ACCESS_KEY_ID = credentials('Access_Key')
-        AWS_SECRET_KEY = credentials('Secret_Key')
+        AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
         }
 
 
