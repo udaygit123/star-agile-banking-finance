@@ -52,26 +52,14 @@ environment {
             steps {
                dir('test-server'){
                   
- //               sh 'sudo chmod 600 jenkinskey1.pem'
+                sh 'sudo chmod 600 jenkinskey1.pem'
  
                 sh 'terraform init'
                 sh 'terraform validate'
+                sh 'terraform apply --auto-approve'
                 
                 }
                 }
             }
-    stage('terraform Apply'){
-           steps{
-            dir('test-server'){
-            withCredentials([[
-                    $class: 'AmazonWebServicesCredentialsBinding',
-                    credentialsId: "aws-credentials",
-                    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-                    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-                sh 'terraform apply --auto-approve'
-                }
-            }
-        }
-   }
           }
           }
