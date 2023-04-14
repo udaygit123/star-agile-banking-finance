@@ -20,6 +20,6 @@ resource "aws_instance" "test-server" {
         command = " echo ${aws_instance.test-server.public_ip} > inventory "
   }
    provisioner "local-exec" {
-  command = "ansible-playbook /var/lib/jenkins/workspace/Bankingproject/test-server/finance-playbook.yml "
+  command = "ansible-playbook /var/lib/jenkins/workspace/Banking/test-server/finance-playbook.yml "
   } 
 }
