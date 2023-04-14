@@ -50,10 +50,8 @@ environment {
 //            }
      stage ('Configure Test-server with Terraform, Ansible and then Deploying'){
             steps {
-               dir('test-server'){
-                  
+               dir('test-server')   
                 sh 'sudo chmod 600 jenkinskey1.pem'
- 
                 sh 'terraform init'
                 sh 'terraform validate'
                 sh 'terraform apply --auto-approve'
@@ -61,5 +59,5 @@ environment {
                 }
                 }
             }
-          }
-          }
+      }
+  }
