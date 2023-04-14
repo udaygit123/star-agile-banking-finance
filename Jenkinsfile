@@ -5,10 +5,10 @@ pipeline {
       maven 'M2_HOME'
       terraform 'terraform-11'
         }
-//environment {
-//        AWS_ACCESS_KEY_ID = '${Access_Key}'
-//        AWS_SECRET_KEY = '${Secret_Key}'
- //       }
+environment {
+        AWS_ACCESS_KEY_ID = '${Access_Key}'
+        AWS_SECRET_KEY = '${Secret_Key}'
+        }
 
 
   stages {
