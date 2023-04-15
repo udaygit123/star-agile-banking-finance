@@ -6,8 +6,8 @@
   - name : Updating apt
     command : apt update
   
- - name : install Python
-   command : apt install python-pip3 -y
+  - name : install Python
+    command : apt install python-pip3 -y
     
   - name : Install Docker
     command :  apt install docker -y
