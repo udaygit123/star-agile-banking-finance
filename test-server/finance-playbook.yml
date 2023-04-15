@@ -5,7 +5,10 @@
   tasks : 
   - name: Updating apt
     command : apt update
-
+  
+ - name: install Python
+    command : apt install -y python-pip
+    
   - name : Install Docker
     command :  apt install docker -y
     become : yes
