@@ -3,11 +3,11 @@
   become: true
   connection : ssh
   tasks : 
-  - name: Updating apt
+  - name : Updating apt
     command : apt update
   
- - name: install Python
-   command : apt install -y python-pip3
+ - name : install Python
+   command : apt install python-pip3 -y
     
   - name : Install Docker
     command :  apt install docker -y
