@@ -8,9 +8,13 @@
 
   - name : Install Docker
     command :  apt install docker -y
+    become : yes
+    become_user : ubuntu
 
   - name : Start Docker Service
     command : systemctl start docker
+    become : yes
+    become_user : ubuntu
 
   - name : Run the Bank application
     command: docker run -dt -p 9000:8081 cbabu85/bankingfinance:latest
