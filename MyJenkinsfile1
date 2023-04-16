@@ -1,32 +1,32 @@
 pipeline {
   agent any
-
   tools {
-      maven 'M2_HOME'
+     maven 'M2_HOME'
+      }
      stages {
-     stage('checkout'){
-       steps {
-         echo 'checkout the code from GitRepo'
-          git 'https://github.com/udaygit123/star-agile-banking-finance.gitt'
+        stage('checkout'){
+           steps {
+             echo 'checkout the code from GitRepo'
+             git branch: 'master', url: 'https://github.com/udaygit123/star-agile-banking-finance.git'
                     }
             }
 
 
      stage('Build the  Application'){
                steps {
-                   echo "Cleaning.... Compiling......Testing.........Packaging"
+                   echo "Packaging Application"
                    sh 'mvn clean package'
                     }
                  }
-     stage('publish Reports'){
-               steps {
-               publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Banking-F-Project/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+     stage('Publish HTML Reports'){
+        steps {
+         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Banking-F-Project/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
                     }
             }
 
      stage('Docker Image Creation'){
-             steps {
-                   sh 'docker build -t udaydocker123/bankingfproject:latest .'
+        steps {
+           sh 'docker build -t udaydocker123/bankingfproject:latest .'
                      }
                  }
 
@@ -39,3 +39,7 @@ pipeline {
 	            }
                 }
            }
+}
+}
+
+
