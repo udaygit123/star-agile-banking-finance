@@ -1,0 +1,41 @@
+pipeline {
+  agent any
+
+  tools {
+      maven 'M2_HOME'
+     stages {
+     stage('checkout'){
+       steps {
+         echo 'checkout the code from GitRepo'
+          git 'https://github.com/udaygit123/star-agile-banking-finance.gitt'
+                    }
+            }
+
+
+     stage('Build the  Application'){
+               steps {
+                   echo "Cleaning.... Compiling......Testing.........Packaging"
+                   sh 'mvn clean package'
+                    }
+                 }
+     stage('publish Reports'){
+               steps {
+               publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Banking-F-Project/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+                    }
+            }
+
+     stage('Docker Image Creation'){
+             steps {
+                   sh 'docker build -t udaydocker123/bankingfproject:latest .'
+                     }
+                 }
+
+     stage('Push Image to DockerHub'){
+     steps {
+                  withCredentials([usernamePassword(credentialsId: 'Dockerhub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+         sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+         sh 'docker push udaydocker123/bankingfproject:latest'
+
+	            }
+                }
+           }
