@@ -6,7 +6,7 @@ resource "aws_instance" "test-server" {
  
   connection {
     type     = "ssh"
-    user     = "ubuntu"
+    user     = "terrauserp1"
     private_key = file("./JenkinSerP1key.pem")
     host     = self.public_ip
   }
