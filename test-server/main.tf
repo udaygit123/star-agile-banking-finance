@@ -1,4 +1,4 @@
-resource "aws_instance" "test-server" {
+resource "aws_instance" "test-server1" {
   ami           = "ami-0aa2b7722dc1b5612" 
   instance_type = "t2.micro" 
   key_name = "JenkinSerP1key"
