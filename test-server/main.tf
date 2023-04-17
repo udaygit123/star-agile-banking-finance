@@ -7,8 +7,12 @@ resource "aws_instance" "test-server1" {
   connection {
     type     = "ssh"
     user     = "ec2-user"
-    private_key = file("./JenkinSerP1key.pem")
-    host     = self.public_ip
+   # private_key = file("./JenkinSerP1key.pem")
+    private_key = "${file("./JenkinSerP1key.pem")}"
+   # host     = self.public_ip
+    host = "${self.private_ip}"
+    agent = false
+    timeout = "3m"
   }
   provisioner "remote-exec" {
     inline = [ "echo 'wait to start instance' "]
