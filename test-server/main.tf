@@ -1,5 +1,5 @@
 resource "aws_instance" "test-server1" {
-  ami           = "ami-07d3a50bd29811cd1" 
+  ami           = "ami-06e46074ae430fba6" 
   instance_type = "t2.micro" 
   key_name = "JenkinSerP1key"
   vpc_security_group_ids = ["sg-077ce7b1c53c11b8a"]
