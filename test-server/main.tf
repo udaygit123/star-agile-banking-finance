@@ -1,12 +1,12 @@
 resource "aws_instance" "test-server1" {
-  ami           = "ami-0aa2b7722dc1b5612" 
+  ami           = "ami-07d3a50bd29811cd1" 
   instance_type = "t2.micro" 
   key_name = "JenkinSerP1key"
   vpc_security_group_ids = ["sg-077ce7b1c53c11b8a"]
  
   connection {
     type     = "ssh"
-    user     = "terrauserp1"
+    user     = "ec2-user"
     private_key = file("./JenkinSerP1key.pem")
     host     = self.public_ip
   }
