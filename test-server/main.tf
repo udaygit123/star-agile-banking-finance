@@ -20,6 +20,6 @@ resource "aws_instance" "test-server1" {
         command = " echo ${aws_instance.test-server1.public_ip} > inventory "
   }
    provisioner "local-exec" {
-  command = "ansiblePlaybook credentialsId: 'ubuntu', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: '/c/Users/sonu/MyBankFProject/star-agile-banking-finance/ansible-playbook.yml' "
+  command = "ansiblePlaybook credentialsId: 'ubuntu', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml"
   } 
 }
