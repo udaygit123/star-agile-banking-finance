@@ -54,6 +54,13 @@ pipeline {
                 }
             }
 }
+             stage ('For Automated Monitoring and Report Visualization'){
+            steps {
+                dir('test-server'){
+                echo 'creating prom and grafana container"
+		}
+		}
+		}
 }
 }
 
