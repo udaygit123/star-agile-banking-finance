@@ -15,6 +15,6 @@
   - name: Deploy Docker Container
     command: docker run -itd -p 8089:8081 udaydocker123/bankingfproject:latest
   - name: Deploy Docker Container
-    command: docker run -itd --name prometheus -p 9090:9090 ubuntu/prometheus
+    command: docker run -itd --name prometheus -p 9090:9090 bitnami/prometheus
   - name: Deploy Docker Container
     command: docker run -itd --name grafana -p 3000:3000 grafana/grafana
