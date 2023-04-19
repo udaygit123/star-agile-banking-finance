@@ -43,7 +43,7 @@ pipeline {
 	            }
                 }
            }
-	   stage ('Configure Test-server1 with Terraform, Ansible and then Deploying'){
+	   stage ('Configure Test-server1 with Terraform, Ansible and then Deploying For Automated Monitor Report Visualization'){
             steps {
                 dir('test-server'){
                 sh 'sudo chmod 600 JenkinSerP1key.pem'
@@ -54,14 +54,7 @@ pipeline {
                 }
             }
 }
-             stage ('For Automated Monitoring and Report Visualization'){
-            steps {
-                dir('test-server') {
-		sh './prometheus'
-                
-		}
-		}
-		}
+             
 }
 }
 
